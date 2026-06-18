@@ -118,11 +118,18 @@ img { max-width: 100%; display: block; }
 }
 .nav-sponsor-logo:hover { opacity: 1; }
 
+/* Logos: Höhe fixiert, Breite aus viewBox-Seitenverhältnis.
+   Menzi Muck SVG hat kein intrinsisches Mass → max-width begrenzt Breite.
+   Lässer SVG hat viewBox 320×80 → bei h=36 ergibt sich w=144, passt. */
 .nav-sponsor-logo img,
 .nav-sponsor-logo svg {
   height: 36px;
   width: auto;
+  max-width: 160px;        /* Menzi Muck (AR ≈2.6) → max ~94px; Lässer → max ~144px */
+  object-fit: contain;
+  display: block;
 }
+
 
 .nav-logo-divider {
   width: 1px;
@@ -1195,7 +1202,14 @@ footer {
 }
 
 .footer-sponsor-logo:hover { opacity: 1; }
-.footer-sponsor-logo img, .footer-sponsor-logo svg { height: 28px; width: auto; }
+.footer-sponsor-logo img,
+.footer-sponsor-logo svg {
+  height: 28px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  display: block;
+}
 
 .footer-logo-sep {
   width: 1px;
