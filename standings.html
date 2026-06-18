@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rangliste – Firmen Racing Cup 2026</title>
+  <meta name="description" content="Aktuelle Teamwertung – Firmen Racing Cup 2026">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🏁</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────── -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="#e8001c" stroke-width="1.5"/>
+      <path d="M8 20 L32 20 M20 8 L20 32" stroke="#e8001c" stroke-width="1" opacity=".4"/>
+      <polygon points="20,6 24,16 34,16 26,22 29,32 20,26 11,32 14,22 6,16 16,16" fill="#e8001c" opacity=".85"/>
+    </svg>
+    <div class="brand-text">
+      <span class="brand-main">FRC 2026</span>
+      <span class="brand-sub">Hybrid Racing Au SG</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">🏠 Start</a></li>
+    <li><a href="standings.html">🏆 Rangliste</a></li>
+    <li><a href="events.html">📋 Events</a></li>
+    <li><a href="teams.html">👥 Teams</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── Page Header ─────────────────────────────────────────── -->
+<div class="page-header">
+  <div class="page-header-content">
+    <h1 class="page-title">Team<span class="accent">wertung</span></h1>
+    <p class="page-subtitle">Nur Teamwertung · Saison 2026 · Porsche 911 GT3 RS</p>
+  </div>
+</div>
+
+<!-- ── Standings ───────────────────────────────────────────── -->
+<div class="standings-container">
+
+  <!-- Punktesystem-Erklärung -->
+  <div class="scoring-panel">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <h3 style="font-size:.9rem;font-family:'Orbitron',monospace;font-weight:700">Punktesystem</h3>
+      <span class="tag tag-gold">★ Grand Finale: alle Punkte ×2</span>
+    </div>
+    <div class="scoring-grid">
+      <div class="score-item"><div class="score-pos">P1</div><div class="score-pts">25</div></div>
+      <div class="score-item"><div class="score-pos">P2</div><div class="score-pts">20</div></div>
+      <div class="score-item"><div class="score-pos">P3</div><div class="score-pts">16</div></div>
+      <div class="score-item"><div class="score-pos">P4</div><div class="score-pts">13</div></div>
+      <div class="score-item"><div class="score-pos">P5</div><div class="score-pts">11</div></div>
+      <div class="score-item"><div class="score-pos">P6</div><div class="score-pts">9</div></div>
+      <div class="score-item"><div class="score-pos">P7</div><div class="score-pts">7</div></div>
+      <div class="score-item"><div class="score-pos">P8</div><div class="score-pts">5</div></div>
+      <div class="score-item bonus"><div class="score-pos">Pole</div><div class="score-pts">+1</div></div>
+      <div class="score-item bonus"><div class="score-pos">Schnellste R.</div><div class="score-pts">+1</div></div>
+    </div>
+  </div>
+
+  <!-- Tabelle -->
+  <div class="standings-table-wrap">
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th style="width:44px">#</th>
+          <th>Team</th>
+          <th class="center">E01<br><span style="font-weight:400;font-size:.6rem;color:#555">Spielberg</span></th>
+          <th class="center">E02<br><span style="font-weight:400;font-size:.6rem;color:#555">Hockenheim</span></th>
+          <th class="center">E03<br><span style="font-weight:400;font-size:.6rem;color:#555">Nürburgring</span></th>
+          <th class="center" style="color:#f5c518">F<br><span style="font-weight:400;font-size:.6rem;color:#666">Nordschleife</span></th>
+          <th class="center" style="color:#f5c518">Total</th>
+          <th class="center">Trend</th>
+        </tr>
+      </thead>
+      <tbody id="standingsTableBody">
+        <!-- Wird von app.js befüllt -->
+        <tr>
+          <td colspan="8" style="text-align:center;padding:48px 20px;color:#555">
+            <div style="font-size:2rem;margin-bottom:12px">⏳</div>
+            Saison startet bald – noch keine Ergebnisse vorhanden.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Legende -->
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#f5c518"></div>
+      Punkte inkl. Bonuspunkte (Pole + Schnellste Runde)
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#e8001c"></div>
+      Grand Finale: alle Punkte ×2
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:#555"></div>
+      Kein Ergebnis / DNF
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Footer ──────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-brand">🏁 Firmen Racing Cup 2026</div>
+  <div class="footer-meta">
+    Hybrid Racing Au SG
+    <span class="footer-divider">·</span>
+    Nur Teamwertung – kein Einzelfahrer-Ranking
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/parser.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
