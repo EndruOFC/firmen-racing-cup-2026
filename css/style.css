@@ -118,14 +118,18 @@ img { max-width: 100%; display: block; }
 }
 .nav-sponsor-logo:hover { opacity: 1; }
 
-/* Logos: Höhe fixiert, Breite aus viewBox-Seitenverhältnis.
-   Menzi Muck SVG hat kein intrinsisches Mass → max-width begrenzt Breite.
-   Lässer SVG hat viewBox 320×80 → bei h=36 ergibt sich w=144, passt. */
+/* Logos: PNG mit weissem Hintergrund → weisse Pille im dunklen Navbar */
+.nav-sponsor-logo {
+  background: #fff;
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+
 .nav-sponsor-logo img,
 .nav-sponsor-logo svg {
-  height: 36px;
+  height: 32px;
   width: auto;
-  max-width: 160px;        /* Menzi Muck (AR ≈2.6) → max ~94px; Lässer → max ~144px */
+  max-width: 150px;
   object-fit: contain;
   display: block;
 }
@@ -1197,6 +1201,9 @@ footer {
   display: flex;
   align-items: center;
   gap: 8px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 4px 10px;
   opacity: .65;
   transition: opacity var(--t);
 }
@@ -1204,9 +1211,9 @@ footer {
 .footer-sponsor-logo:hover { opacity: 1; }
 .footer-sponsor-logo img,
 .footer-sponsor-logo svg {
-  height: 28px;
+  height: 24px;
   width: auto;
-  max-width: 130px;
+  max-width: 120px;
   object-fit: contain;
   display: block;
 }
