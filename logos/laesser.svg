@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <!-- Lässer Stickmaschinen AG – Platzhalter Logo -->
+  <!-- Ersetzen durch echte Datei: logos/laesser.svg -->
+  <rect width="200" height="60" rx="4" fill="#003087"/>
+  <!-- Stilisiertes "L" als Icon -->
+  <rect x="12" y="12" width="5" height="36" rx="2" fill="#FFD100"/>
+  <rect x="12" y="43" width="22" height="5" rx="2" fill="#FFD100"/>
+  <!-- Textbereich -->
+  <text x="44" y="28" font-family="'Orbitron',Arial,sans-serif" font-size="11" font-weight="700" fill="#F5F5F5" letter-spacing="1">LÄSSER</text>
+  <text x="44" y="44" font-family="Arial,sans-serif" font-size="7.5" font-weight="400" fill="#9AAFD4" letter-spacing="0.5">STICKMASCHINEN AG</text>
+  <!-- Dekorative Linie -->
+  <line x1="44" y1="31" x2="185" y2="31" stroke="#FFD100" stroke-width="0.8" stroke-opacity="0.35"/>
+</svg>

@@ -4,55 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Firmen Racing Cup 2026 – Road to the Nordschleife</title>
-  <meta name="description" content="Firmen Racing Cup 2026 – Sim-Racing-Championship bei Hybrid Racing Au SG. Porsche 911 GT3 RS · Assetto Corsa">
-  <meta property="og:title" content="Firmen Racing Cup 2026">
-  <meta property="og:description" content="Road to the Nordschleife – 8 Teams kämpfen um den Titel">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>🏁</text></svg>">
+  <meta name="description" content="Firmen Racing Cup 2026 – Lässer Stickmaschinen × Menzi Muck AG. Porsche 911 GT3 RS · Assetto Corsa">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230A0A0A'/><text y='24' font-size='20' x='4'>🏁</text></svg>">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- ── Navigation ──────────────────────────────────────────── -->
+<!-- ══════════════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════════════ -->
 <nav class="navbar">
+  <!-- Links: Lässer Logo -->
+  <div class="navbar-logos">
+    <a href="https://www.laesser.com" target="_blank" rel="noopener" class="nav-sponsor-logo" title="Lässer Stickmaschinen AG">
+      <img src="logos/laesser.svg" alt="Lässer Stickmaschinen AG" height="34"
+           onerror="this.style.display='none'">
+    </a>
+    <div class="nav-logo-divider"></div>
+    <a href="https://www.menzi-muck.com" target="_blank" rel="noopener" class="nav-sponsor-logo" title="Menzi Muck AG">
+      <img src="logos/menzimuck.svg" alt="Menzi Muck AG" height="34"
+           onerror="this.style.display='none'">
+    </a>
+  </div>
+
+  <!-- Mitte: Titel -->
   <a href="index.html" class="navbar-brand">
-    <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="19" fill="none" stroke="#e8001c" stroke-width="1.5"/>
-      <path d="M8 20 L32 20 M20 8 L20 32" stroke="#e8001c" stroke-width="1" opacity=".4"/>
-      <polygon points="20,6 24,16 34,16 26,22 29,32 20,26 11,32 14,22 6,16 16,16" fill="#e8001c" opacity=".85"/>
-    </svg>
-    <div class="brand-text">
-      <span class="brand-main">FRC 2026</span>
-      <span class="brand-sub">Hybrid Racing Au SG</span>
-    </div>
+    <span class="brand-main">Firmen Racing Cup</span>
+    <span class="brand-year">2026 · Hybrid Racing Au SG</span>
   </a>
 
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">🏠 Start</a></li>
-    <li><a href="standings.html">🏆 Rangliste</a></li>
-    <li><a href="events.html">📋 Events</a></li>
-    <li><a href="teams.html">👥 Teams</a></li>
-  </ul>
+  <!-- Rechts: Navigation -->
+  <div class="nav-right" id="navRight">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="standings.html">Rangliste</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="teams.html">Teams</a></li>
+    </ul>
+  </div>
 
-  <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+  <button class="hamburger" id="hamburger" aria-label="Menü">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- ── Hero ────────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
+<!-- ══════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════ -->
+<section class="hero carbon-bg">
+  <div class="hero-carbon"></div>
+  <div class="hero-diagonal"></div>
+  <div class="hero-glow"></div>
+
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span>🏁</span> Firmen Racing Cup 2026
-    </div>
+    <div class="hero-eyebrow">🏁 &nbsp;Lässer × Menzi Muck &nbsp;·&nbsp; Season 2026</div>
+
     <h1 class="hero-title">
       Road to the
-      <span class="line-accent">Nordschleife</span>
+      <span class="accent">Nordschleife</span>
     </h1>
+
     <p class="hero-subtitle">
-      8 Teams · 16 Fahrer · <strong>Porsche 911 GT3 RS</strong><br>
-      4 Rennabende · Assetto Corsa
+      8 Teams &nbsp;·&nbsp; 16 Fahrer &nbsp;·&nbsp;
+      <strong>Porsche 911 GT3 RS</strong><br>
+      4 Rennabende &nbsp;·&nbsp; Assetto Corsa
     </p>
 
     <!-- Countdown -->
@@ -81,76 +96,75 @@
 
     <div class="btn-group">
       <a href="standings.html" class="btn btn-primary">🏆 Rangliste</a>
-      <a href="events.html" class="btn btn-outline">📋 Events & Ergebnisse</a>
+      <a href="events.html" class="btn btn-outline">📋 Events &amp; Ergebnisse</a>
     </div>
   </div>
 </section>
 
-<!-- ── Podium Top 3 ─────────────────────────────────────────── -->
-<section class="podium-section">
+<!-- ══════════════════════════════════════════════════════════
+     TOP 3 PODIUM
+══════════════════════════════════════════════════════════ -->
+<div class="section">
   <div class="section-header">
     <h2 class="section-title">Aktuelle Führung</h2>
-    <a href="standings.html" class="btn btn-outline" style="padding:8px 16px;font-size:.7rem">Alle Teams →</a>
+    <a href="standings.html" class="btn btn-outline" style="padding:8px 16px;font-size:.65rem">Alle Teams →</a>
   </div>
   <div class="podium-grid" id="podiumGrid">
-    <!-- Wird von app.js befüllt -->
-    <div style="grid-column:1/-1;text-align:center;padding:40px;color:#555">
-      <div style="font-size:2rem;margin-bottom:12px">🏁</div>
-      Saison startet bald – Ergebnisse werden hier angezeigt.
+    <div style="grid-column:1/-1;text-align:center;padding:48px 20px;color:var(--text-dim)">
+      <div style="font-size:2.5rem;margin-bottom:14px">🏁</div>
+      <div style="font-family:'Orbitron',monospace;font-size:.8rem;letter-spacing:.1em">Saison startet bald</div>
+      <div style="font-size:.82rem;margin-top:6px">Ergebnisse erscheinen hier nach dem ersten Event.</div>
     </div>
   </div>
-</section>
+</div>
 
-<div class="checkered-divider"></div>
+<div class="flag-divider"></div>
 
-<!-- ── Saisonübersicht ──────────────────────────────────────── -->
-<section class="events-overview">
+<!-- ══════════════════════════════════════════════════════════
+     SAISONKALENDER
+══════════════════════════════════════════════════════════ -->
+<div class="section" style="padding-top:0">
   <div class="section-header">
     <h2 class="section-title">Saisonkalender 2026</h2>
-    <a href="events.html" class="btn btn-outline" style="padding:8px 16px;font-size:.7rem">Alle Events →</a>
+    <a href="events.html" class="btn btn-outline" style="padding:8px 16px;font-size:.65rem">Alle Events →</a>
   </div>
-  <div class="events-grid" id="eventsMiniGrid">
-    <!-- Wird von app.js befüllt -->
-  </div>
-</section>
+  <div class="events-grid" id="eventsMiniGrid"></div>
+</div>
 
-<!-- ── Fahrzeug-Highlight ───────────────────────────────────── -->
-<section style="padding:40px 24px 60px;max-width:900px;margin:0 auto;text-align:center">
-  <div style="background:#111;border:1px solid #2a2a2a;border-radius:8px;padding:40px 32px">
-    <div style="font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#e8001c;font-family:'Orbitron',monospace;margin-bottom:12px">Einheitsfahrzeug</div>
-    <div style="font-size:clamp(1.3rem,4vw,2rem);font-family:'Orbitron',monospace;font-weight:900;margin-bottom:8px">Porsche 911 GT3 RS</div>
-    <div style="color:#888;font-size:.9rem;margin-bottom:24px">992 · Assetto Corsa · Equal Performance</div>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-      <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:12px 20px;min-width:100px">
-        <div style="font-family:'Orbitron',monospace;font-size:1.2rem;font-weight:700;color:#e8001c">525</div>
-        <div style="font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.1em">PS</div>
-      </div>
-      <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:12px 20px;min-width:100px">
-        <div style="font-family:'Orbitron',monospace;font-size:1.2rem;font-weight:700;color:#e8001c">318</div>
-        <div style="font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.1em">km/h Vmax</div>
-      </div>
-      <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:12px 20px;min-width:100px">
-        <div style="font-family:'Orbitron',monospace;font-size:1.2rem;font-weight:700;color:#e8001c">GT3</div>
-        <div style="font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.1em">Klasse</div>
-      </div>
-      <div style="background:#161616;border:1px solid #2a2a2a;border-radius:8px;padding:12px 20px;min-width:100px">
-        <div style="font-family:'Orbitron',monospace;font-size:1.2rem;font-weight:700;color:#e8001c">8</div>
-        <div style="font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.1em">Teams</div>
-      </div>
+<!-- ══════════════════════════════════════════════════════════
+     FAHRZEUG
+══════════════════════════════════════════════════════════ -->
+<div class="section" style="padding-top:0;padding-bottom:64px">
+  <div class="car-highlight">
+    <div class="car-eyebrow">Einheitsfahrzeug</div>
+    <div class="car-title">Porsche 911 GT3 RS</div>
+    <div class="car-sub">992 · Assetto Corsa · Equal Performance für alle Teams</div>
+    <div class="car-stats">
+      <div class="car-stat"><div class="cs-val">525</div><div class="cs-lab">PS</div></div>
+      <div class="car-stat"><div class="cs-val">318</div><div class="cs-lab">km/h Vmax</div></div>
+      <div class="car-stat"><div class="cs-val">GT3</div><div class="cs-lab">Klasse</div></div>
+      <div class="car-stat"><div class="cs-val">8</div><div class="cs-lab">Teams</div></div>
+      <div class="car-stat"><div class="cs-val">16</div><div class="cs-lab">Fahrer</div></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ── Footer ──────────────────────────────────────────────── -->
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════════════ -->
 <footer>
-  <div class="footer-brand">🏁 Firmen Racing Cup 2026</div>
-  <div class="footer-meta">
-    Hybrid Racing Au SG
-    <span class="footer-divider">·</span>
-    Porsche 911 GT3 RS · Assetto Corsa
-    <span class="footer-divider">·</span>
-    Road to the Nordschleife
+  <div class="footer-logos">
+    <a href="https://www.laesser.com" target="_blank" rel="noopener" class="footer-sponsor-logo" title="Lässer Stickmaschinen AG">
+      <img src="logos/laesser.svg" alt="Lässer" height="26" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'LÄSSER',style:'font-family:Orbitron,monospace;font-size:.75rem;font-weight:700;color:#F5F5F5;letter-spacing:.1em'}))">
+    </a>
+    <div class="footer-logo-sep"></div>
+    <a href="https://www.menzi-muck.com" target="_blank" rel="noopener" class="footer-sponsor-logo" title="Menzi Muck AG">
+      <img src="logos/menzimuck.svg" alt="Menzi Muck" height="26" onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'MENZI MUCK',style:'font-family:Orbitron,monospace;font-size:.75rem;font-weight:700;color:#FFD100;letter-spacing:.1em'}))">
+    </a>
   </div>
+  <div class="footer-brand">🏁 Firmen Racing Cup 2026</div>
+  <div class="footer-presented">Presented by Lässer Stickmaschinen AG &amp; Menzi Muck AG</div>
+  <div class="footer-tagline">Zwei Schweizer Weltmarktführer. Eine Rennstrecke.</div>
 </footer>
 
 <script src="js/config.js"></script>
