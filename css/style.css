@@ -95,73 +95,40 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid var(--border);
   box-shadow: 0 1px 0 rgba(255,209,0,.12), 0 4px 24px rgba(0,0,0,.6);
   padding: 0 24px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 72px;
-  gap: 16px;
 }
 
-/* Linkes Logo-Cluster */
-.navbar-logos {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.nav-sponsor-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  opacity: .9;
-  transition: opacity var(--t);
-}
-.nav-sponsor-logo:hover { opacity: 1; }
-
-/* Logos: PNG mit weissem Hintergrund → weisse Pille im dunklen Navbar */
-.nav-sponsor-logo {
-  background: #fff;
-  border-radius: 6px;
-  padding: 5px 10px;
-}
-
-.nav-sponsor-logo img,
-.nav-sponsor-logo svg {
-  height: 32px;
-  width: auto;
-  max-width: 150px;
-  object-fit: contain;
-  display: block;
-}
-
-
-.nav-logo-divider {
-  width: 1px;
-  height: 28px;
-  background: var(--border);
-}
-
-/* Mitte: Brand-Titel */
 .navbar-brand {
-  text-align: center;
-  text-decoration: none;
-}
-
-.navbar-brand .brand-main {
-  display: block;
   font-family: 'Orbitron', monospace;
-  font-size: .8rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: .12em;
   color: var(--yellow);
-  line-height: 1.1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
-.navbar-brand .brand-year {
-  font-size: .6rem;
-  letter-spacing: .2em;
-  color: var(--text-muted);
-  text-transform: uppercase;
+.navbar-brand-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--yellow);
+  border-radius: 50%;
+  box-shadow: var(--yellow-glow);
+  animation: puls 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes puls {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
 }
 
 /* Rechts: Nav-Links */
@@ -1322,10 +1289,6 @@ footer {
    RESPONSIVE
 ══════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  .navbar {
-    grid-template-columns: 1fr auto auto;
-  }
-
   .nav-right { display: none; }
 
   .nav-links {
@@ -1359,7 +1322,7 @@ footer {
 
   .hero-title { font-size: 2.2rem; }
   .navbar { height: 64px; }
-  .navbar-brand .brand-main { font-size: .72rem; }
+  .navbar-brand { font-size: .68rem; }
 }
 
 @media (max-width: 520px) {
