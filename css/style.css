@@ -1168,10 +1168,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #fff;
-  border-radius: 5px;
-  padding: 4px 10px;
-  opacity: .65;
+  opacity: .75;
   transition: opacity var(--t);
 }
 
@@ -1258,7 +1255,7 @@ footer {
 /* ── Hero Logos ────────────────────────────────────────────── */
 .hero-logos {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 2rem;
   width: 100%;
@@ -1275,9 +1272,9 @@ footer {
 }
 
 .hero-logo {
-  height: 56px;
+  height: 48px;
   width: auto;
-  max-width: 200px;
+  max-width: none;
   object-fit: contain;
   transition: transform var(--t), opacity var(--t);
 }
@@ -1343,12 +1340,9 @@ footer {
 }
 
 /* ── Logos – Dark Theme ────────────────────────────────────── */
-/* Lässer: weisses PNG auf transparentem Hintergrund → kein Filter nötig  */
-/* Menzi Muck: weisser Hintergrund + schwarzer/roter Text → invertieren   */
+/* Lässer (CMYK): weisses PNG auf transparent → kein Filter nötig          */
+/* Menzi Muck: schwarz/rot auf transparent → invertieren (schwarz→weiss,   */
+/* rot bleibt rot dank hue-rotate) für den dunklen Hintergrund             */
 img[src*="menzimuck.png"] {
   filter: invert(1) hue-rotate(180deg);
-}
-/* Navbar-Logos auf weissem Pill-Hintergrund → kein Filter */
-.nav-sponsor-logo img[src*="menzimuck.png"] {
-  filter: none;
 }
