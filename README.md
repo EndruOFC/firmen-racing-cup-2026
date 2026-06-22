@@ -82,6 +82,42 @@ Die Website aktualisiert sich automatisch – kein weiterer Eingriff nötig.
 
 ---
 
+## Anmeldungen automatisch ins Team-Format konvertieren
+
+Das Anmeldeportal (Sign-in-Site) exportiert im Admin-Bereich eine `anmeldungen.json`.
+Das Script `tools/convert-registration.js` wandelt diese automatisch in den
+`teams`-Block für `js/config.js` um – kein manuelles Abtippen nötig.
+
+**Voraussetzung:** [Node.js](https://nodejs.org) installiert.
+
+```bash
+node tools/convert-registration.js anmeldungen.json
+```
+
+Das Script gibt den fertigen `teams: [ ... ]`-Block aus. Diesen in `js/config.js`
+über den bestehenden `teams`-Array kopieren. Direkt in eine Datei speichern:
+
+```bash
+node tools/convert-registration.js anmeldungen.json > teams.txt
+```
+
+**Was wird konvertiert?**
+
+| Anmeldung (Export) | → | config.js Team |
+|--------------------|---|----------------|
+| `teamname` | → | `name` + `id` (Slug) + `shortName` (Kürzel) |
+| `fahrer1` + `fahrer2` | → | `drivers: ["Vorname Nachname", …]` |
+| _(automatisch)_ | → | `color` (aus Palette) + `logo`-Pfad |
+
+> **Hinweise:**
+> - `firmenname` wird nicht übernommen (kein Feld im Rangliste-Modell).
+> - Logo-Pfade werden generiert (`logos/team-<slug>.png`); fehlt die Datei,
+>   zeigt die Seite automatisch ein farbiges Initialen-Avatar.
+> - Die **Fahrernamen** müssen exakt mit den Namen in den AC-Ergebnissen
+>   übereinstimmen – am besten schon bei der Anmeldung korrekt erfassen.
+
+---
+
 ## Team-Logos ersetzen
 
 1. Logo als PNG oder SVG vorbereiten (empfohlen: quadratisch, mind. 200×200px)
