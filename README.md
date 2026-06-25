@@ -1,26 +1,27 @@
-# 🏁 Firmen Racing Cup 2026
+# Firmen Racing Cup 2026
 
 **Sim-Racing Championship · Hybrid Racing Au SG**  
 Porsche 911 GT3 RS (992) · Assetto Corsa · Road to the Nordschleife
 
 ---
 
-## Seitenstruktur
+## Dateistruktur
 
 ```
 /
-├── index.html          Startseite (Hero, Countdown, Top 3, Kalender)
+├── index.html          Landingpage (Hero, Narrativ, Partner, Timeline, Podium, Kalender)
 ├── standings.html      Teamwertung (Live-Tabelle)
-├── events.html         Events & Ergebnisse (aufklappbare Karten)
+├── events.html         Events & Ergebnisse (aufklappbare Karten mit Tabs)
 ├── teams.html          Teamkarten mit Fahrern & Statistiken
-├── css/style.css       Komplettes Styling (Racing-Theme)
+├── css/style.css       Komplettes Styling (Racing-Theme, CSS Tokens)
 ├── js/config.js        ← HIER Teams, Fahrer & Events konfigurieren
 ├── js/parser.js        Assetto Corsa Result-Parser
-├── js/app.js           Render-Logik
+├── js/app.js           Render-Logik für alle Seiten
 ├── results/            AC JSON-Ergebnisdateien hier ablegen
-│   └── example-event-01.json  (Beispieldatei / Vorlage)
-├── logos/              Team-Logos hier ablegen
-├── CNAME               Custom Domain für GitHub Pages
+│   └── example-event-01.json  (Schema-Referenz)
+├── logos/              Sponsor-Logos (Lässer, Menzi Muck)
+├── tools/
+│   └── convert-registration.js  Anmeldungs-Konverter (Node.js)
 └── README.md
 ```
 
@@ -36,7 +37,7 @@ Assetto Corsa speichert Rennergebnisse nach jedem Session-Ende unter:
 Dokumente\Assetto Corsa\server\results\
 ```
 
-Die Datei heißt z.B. `231012_201530.json` (Datum_Uhrzeit).
+Die Datei heisst z.B. `231012_201530.json` (Datum_Uhrzeit).
 
 ### 2. Datei umbenennen & hochladen
 
@@ -49,7 +50,7 @@ Benenne die Datei entsprechend um und lege sie in `results/` ab:
 | Event 03 – Nürburgring | `results/event-03.json` |
 | Grand Finale – Nordschleife | `results/event-finale.json` |
 
-Die Namen sind in `js/config.js` unter `resultsFile` definiert und können angepasst werden.
+Die Namen sind in `js/config.js` unter `resultsFile` definiert.
 
 ### 3. Git commit & push
 
@@ -69,24 +70,23 @@ Die Website aktualisiert sich automatisch – kein weiterer Eingriff nötig.
 
 ```js
 {
-  id: "team-alpha",          // eindeutige ID (keine Leerzeichen)
-  name: "Alpha Racing",      // vollständiger Teamname
-  shortName: "ALP",          // 3-Buchstaben-Kürzel
-  color: "#e8001c",          // Teamfarbe (Hex)
-  logo: "logos/team-alpha.png",  // Logo-Pfad
+  id: "team-alpha",
+  name: "Alpha Racing",
+  shortName: "ALP",
+  color: "#e8001c",
+  logo: "logos/team-alpha.png",
   drivers: ["Max Mustermann", "Lisa Schnell"],  // exakt wie in AC!
 },
 ```
 
-> **Wichtig:** Die Fahrernamen müssen **exakt** mit den Namen in den AC-Ergebnisdateien übereinstimmen (Groß-/Kleinschreibung, Leerzeichen).
+> **Wichtig:** Die Fahrernamen müssen **exakt** mit den Namen in den AC-Ergebnisdateien übereinstimmen (Gross-/Kleinschreibung, Leerzeichen).
 
 ---
 
-## Anmeldungen automatisch ins Team-Format konvertieren
+## Anmeldungen automatisch konvertieren
 
-Das Anmeldeportal (Sign-in-Site) exportiert im Admin-Bereich eine `anmeldungen.json`.
-Das Script `tools/convert-registration.js` wandelt diese automatisch in den
-`teams`-Block für `js/config.js` um – kein manuelles Abtippen nötig.
+Das Anmeldeportal exportiert im Admin-Bereich eine `anmeldungen.json`.
+`tools/convert-registration.js` wandelt diese automatisch in den `teams`-Block für `js/config.js` um.
 
 **Voraussetzung:** [Node.js](https://nodejs.org) installiert.
 
@@ -94,83 +94,35 @@ Das Script `tools/convert-registration.js` wandelt diese automatisch in den
 node tools/convert-registration.js anmeldungen.json
 ```
 
-Das Script gibt den fertigen `teams: [ ... ]`-Block aus. Diesen in `js/config.js`
-über den bestehenden `teams`-Array kopieren. Direkt in eine Datei speichern:
+Ausgabe direkt in Datei speichern:
 
 ```bash
 node tools/convert-registration.js anmeldungen.json > teams.txt
 ```
 
-**Was wird konvertiert?**
-
 | Anmeldung (Export) | → | config.js Team |
 |--------------------|---|----------------|
-| `teamname` | → | `name` + `id` (Slug) + `shortName` (Kürzel) |
+| `teamname` | → | `name` + `id` (Slug) + `shortName` |
 | `fahrer1` + `fahrer2` | → | `drivers: ["Vorname Nachname", …]` |
 | _(automatisch)_ | → | `color` (aus Palette) + `logo`-Pfad |
 
-> **Hinweise:**
-> - `firmenname` wird nicht übernommen (kein Feld im Rangliste-Modell).
-> - Logo-Pfade werden generiert (`logos/team-<slug>.png`); fehlt die Datei,
->   zeigt die Seite automatisch ein farbiges Initialen-Avatar.
-> - Die **Fahrernamen** müssen exakt mit den Namen in den AC-Ergebnissen
->   übereinstimmen – am besten schon bei der Anmeldung korrekt erfassen.
+> Fehlt ein Team-Logo, zeigt die Seite automatisch ein farbiges Initialen-Avatar.
 
 ---
 
-## Team-Logos ersetzen
+## Team-Logos
 
-1. Logo als PNG oder SVG vorbereiten (empfohlen: quadratisch, mind. 200×200px)
+1. Logo als PNG vorbereiten (empfohlen: quadratisch, mind. 200×200 px)
 2. Datei in `logos/` ablegen, z.B. `logos/team-alpha.png`
-3. Pfad in `js/config.js` beim Team eintragen: `logo: "logos/team-alpha.png"`
-
-Falls kein Logo vorhanden, zeigt die Seite automatisch ein farbiges Initialen-Avatar.
+3. Pfad in `js/config.js` eintragen: `logo: "logos/team-alpha.png"`
 
 ---
 
 ## GitHub Pages Deployment
 
-### Erstmaliges Setup
-
-```bash
-# Repository auf GitHub erstellen (z.B. firmen-racing-cup-2026)
-git init
-git add .
-git commit -m "Initial commit: Firmen Racing Cup 2026"
-git remote add origin https://github.com/DEIN-USERNAME/firmen-racing-cup-2026.git
-git push -u origin main
-```
-
-### GitHub Pages aktivieren
-
-1. Repository → **Settings** → **Pages**
-2. Source: **Deploy from a branch**
-3. Branch: **main** · Folder: **/ (root)**
-4. Speichern – die Seite ist nach ~2 Minuten unter `https://DEIN-USERNAME.github.io/firmen-racing-cup-2026` erreichbar.
-
----
-
-## Custom Domain einrichten
-
-### 1. CNAME-Datei anpassen
-
-Öffne `CNAME` und ersetze den Inhalt mit deiner Domain:
-
-```
-racing.meinedomain.ch
-```
-
-### 2. DNS-Eintrag setzen
-
-Bei deinem Domain-Anbieter einen **CNAME-Record** anlegen:
-
-| Typ | Name | Ziel |
-|-----|------|------|
-| CNAME | racing | DEIN-USERNAME.github.io |
-
-### 3. In GitHub Pages bestätigen
-
-Settings → Pages → Custom domain eintragen → **Enforce HTTPS** aktivieren.
+1. Repository → **Settings → Pages**
+2. Source: **Deploy from a branch** · Branch: **main** · Folder: **/ (root)**
+3. Speichern – erreichbar unter `https://DEIN-USERNAME.github.io/firmen-racing-cup-2026`
 
 ---
 
@@ -196,10 +148,10 @@ Settings → Pages → Custom domain eintragen → **Enforce HTTPS** aktivieren.
 
 | Event | Strecke | Format |
 |-------|---------|--------|
-| 01 – Season Opener | Spielberg South Course | 20' Training + 10' Quali + 60' Rennen |
-| 02 – Normales Rennen | Hockenheimring GP | 20' Training + 10' Quali + 60' Rennen |
-| 03 – Weather Challenge | Nürburgring Sprint GT | 20' Training + 10' Quali + 90' Rennen |
-| F – Grand Finale | Nordschleife | 30' Training + 30' Quali + 3h Rennen |
+| 01 – Season Opener | Spielberg | 60 Min. Rennen |
+| 02 – Runde 2 | Hockenheim | 60 Min. Rennen |
+| 03 – Weather Challenge | Nürburgring Sprint | 90 Min. Rennen |
+| F – Grand Finale | Nordschleife | 3 Stunden Rennen |
 
 ---
 
