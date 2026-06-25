@@ -448,6 +448,12 @@ a:focus-visible,
 }
 .btn-primary:active { transform: translateY(0); }
 
+/* Klein — für Section-Header-Links */
+.btn-sm {
+  padding: 8px 18px;
+  font-size: .64rem;
+}
+
 /* Outline */
 .btn-outline {
   background: transparent;
@@ -1116,10 +1122,17 @@ a:focus-visible,
 ══════════════════════════════════════════════════════════════ */
 footer {
   margin-top: 64px;
-  border-top: 1px solid var(--color-border);
+  position: relative;
   background: var(--color-surface-2);
-  padding: 40px 24px 32px;
+  padding: 44px 24px 36px;
   text-align: center;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-primary) 50%, var(--color-secondary) 100%);
 }
 
 .footer-logos {
@@ -1314,18 +1327,21 @@ img[src*="menzimuck.png"] {
   overflow: hidden;
   text-align: center;
   padding: 80px 24px 80px;
-  background-color: var(--color-dark);
-  background-image: url('https://source.unsplash.com/featured/1920x1080/?racetrack,night,aerial');
+  background-color: #0A0A0A;
+  background-image:
+    radial-gradient(ellipse 75% 55% at 15% 65%, rgba(0, 48, 135, .52) 0%, transparent 100%),
+    radial-gradient(ellipse 55% 40% at 88% 15%, rgba(255, 209, 0, .13) 0%, transparent 100%),
+    radial-gradient(ellipse 90% 55% at 55% 108%, rgba(0, 48, 135, .28) 0%, transparent 100%),
+    linear-gradient(165deg, #0D0D11 0%, #0E1322 50%, #0A0A0A 100%);
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Parallax — Desktop only */
+  background-attachment: scroll;
 }
 
-/* rgba(0,0,0,0.65) Overlay per Brief */
 .hero-photo-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, .65);
+  background: rgba(0, 0, 0, .28);
   z-index: 0;
 }
 
